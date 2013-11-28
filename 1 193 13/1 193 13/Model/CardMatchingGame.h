@@ -19,6 +19,8 @@
 - (Card *) cardAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readonly) NSInteger score;
+@property (nonatomic) int mode; //0 is 2 card, 1 is 3 card
+@property (nonatomic) NSString *resultDescription;
 
 
 @end

@@ -178,17 +178,26 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WOj-1t-gkY">
-                                <rect key="frame" x="68" y="491" width="185" height="29"/>
+                                <rect key="frame" x="142" y="525" width="109" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="2-card mode"/>
-                                    <segment title="3-card mode"/>
+                                    <segment title="2-card"/>
+                                    <segment title="3-card"/>
                                 </segments>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="wsd-5g-1sM">
+                                <rect key="frame" x="20" y="469" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.82936304609183575" blue="0.36916703076620028" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="mode" destination="WOj-1t-gkY" id="r0M-LF-4Zl"/>
+                        <outlet property="moveDescriptionLabel" destination="wsd-5g-1sM" id="g6n-eu-Ksg"/>
                         <outlet property="scoreLabel" destination="AUp-q4-gH7" id="oiM-9H-ABU"/>
                         <outletCollection property="cardButtons" destination="Ofh-Gr-WP0" id="FkA-Cc-MsW"/>
                         <outletCollection property="cardButtons" destination="PaX-96-USJ" id="tcL-0B-Rh1"/>

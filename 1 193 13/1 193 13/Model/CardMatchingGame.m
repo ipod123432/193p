@@ -16,6 +16,18 @@
 
 @implementation CardMatchingGame
 
+- (NSString *)resultDescription
+{
+    if (!_resultDescription) _resultDescription = @"";
+    return _resultDescription;
+}
+
+- (int)mode
+{
+    if (!_mode) _mode = 2; //defaults to 2 card game
+    return _mode;
+}
+
 - (NSMutableArray *)cards
 {
     if (!_cards) _cards = [[NSMutableArray alloc] init];
@@ -53,6 +65,7 @@ static const int COST_TO_CHOOSE = 1;
 - (void) chooseCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
+    NSArray *otherCards = @[];
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;
@@ -63,20 +76,40 @@ static const int COST_TO_CHOOSE = 1;
                 // you have no idea how much grief that one ! gave me. broke the whole game
                 if (otherCard.isChosen && !otherCard.isMatched)
                 {
-                    int matchScore = [card match:@[otherCard]];
-                    if (matchScore)
-                    {
-                        self.score += matchScore * MATCH_BONUS;
-                        otherCard.matched = YES;
-                        card.matched = YES;
-                        
-                    } else {
-                        self.score -= MISMATCH_PENALTY;
-                        otherCard.chosen = NO;
-                    }
-                    break; //only b/c 2 cards
+                    otherCards = [otherCards arrayByAddingObject:otherCard];
                 }
             }
+            if ([otherCards count] == self.mode - 1)
+            {
+                int matchScore = [card match:otherCards];
+                NSString *buffer = @"";
+                if (matchScore)
+                {
+                   
+                    self.score += matchScore * MATCH_BONUS;
+                    for (Card *cards in otherCards)
+                    {
+                        cards.matched = YES;
+                        buffer = [buffer stringByAppendingString: [NSString stringWithFormat: @"%@, ", cards.contents]];
+                    }
+                    card.matched = YES;
+                    buffer = [buffer stringByAppendingString: [NSString stringWithFormat: @"and %@ match for %d points", card.contents, matchScore * MATCH_BONUS]];
+                    
+                } else {
+                    self.score -= MISMATCH_PENALTY;
+                    for (Card *cards in otherCards)
+                    {
+                        cards.chosen = NO;
+                        buffer = [buffer stringByAppendingString: [NSString stringWithFormat: @"%@, ", cards.contents]];
+                    }
+                    card.chosen = NO;
+                    buffer = [buffer stringByAppendingString: [NSString stringWithFormat: @"and %@ don't match. %d point penalty", card.contents, MISMATCH_PENALTY]];
+                }
+                self.resultDescription = buffer;
+            } else {
+                self.resultDescription = [NSString stringWithFormat: @"Flipped up %@", card.contents];
+            }
+            
             self.score -= COST_TO_CHOOSE;
             card.chosen = YES;
         }

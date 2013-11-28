@@ -16,18 +16,29 @@
 -(int)match:(NSArray *)otherCards
 {
     int score = 0;
-    if ([otherCards count] == 1)
+    if ([otherCards count])
     {
-        PlayingCard *otherCard = [otherCards firstObject];
-        if (otherCard.rank == self.rank)
+        for (PlayingCard *otherCard in otherCards)
         {
-            score = 4;
-        } else if ([otherCard.suit isEqualToString:self.suit])
-        {
-            score = 1;
+            if (otherCard.rank == self.rank)
+            {
+                score += 4;
+            } else if ([otherCard.suit isEqualToString:self.suit])
+            {
+                score += 1;
+            } /*else {
+                //score = 0;
+                return 0; //cuz no match
+            }
+            */
         }
-        
+        if (score != [otherCards count] && score != [otherCards count] * 4)
+        {
+            //score = 0; diff matches
+            return 0;
+        }
     }
+   
     return score;
 }
 

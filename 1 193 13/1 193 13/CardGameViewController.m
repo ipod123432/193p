@@ -17,9 +17,11 @@
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) Deck *deck; */
 
+@property (weak, nonatomic) IBOutlet UILabel *moveDescriptionLabel;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mode;
 
 @end
 
@@ -50,6 +52,7 @@
         
     }
      self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.moveDescriptionLabel.text = self.game.resultDescription;
 }
 
 - (NSString *)titleForCard:(Card *)card
@@ -66,8 +69,10 @@
 
 - (IBAction)dealBitch {
     self.game = nil;
+    self.mode.enabled = YES;
+    
     [self updateUI];
-
+    self.moveDescriptionLabel.text = @"Reset";
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender {
@@ -89,6 +94,8 @@
     } */
     //changed from int to NSUInt
     int chosenButtonIndex = [self.cardButtons indexOfObject:sender];
+    self.game.mode = [self.mode selectedSegmentIndex] + 2;
+    self.mode.enabled = NO;
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
     // del in lec 3       self.flipCount++;

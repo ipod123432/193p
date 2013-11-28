@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB23A66A1847DE0D00CC288C /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
 		DB52B07C1845CF4E00113EE8 /* 1 193 13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1 193 13.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB52B07F1845CF4E00113EE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DB52B0811845CF4E00113EE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,7 +61,6 @@
 		DB52B0AA1845CF4F00113EE8 /* __193_13Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __193_13Tests.m; sourceTree = "<group>"; };
 		DBA9B5FC1845D8DF0057F704 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
 		DBA9B5FD1845D8DF0057F704 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
-		DBA9B5FF1845D9430057F704 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
 		DBA9B6001845D9430057F704 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
 		DBA9B6021845DAD90057F704 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
 		DBA9B6031845DAD90057F704 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 				DBB2078518466DBC003E0917 /* CardMatchingGame.m */,
 				DBA9B5FD1845D8DF0057F704 /* Card.h */,
 				DBA9B5FC1845D8DF0057F704 /* Card.m */,
-				DBA9B5FF1845D9430057F704 /* PlayingCard.h */,
+				DB23A66A1847DE0D00CC288C /* PlayingCard.h */,
 				DBA9B6001845D9430057F704 /* PlayingCard.m */,
 				DBA9B6061845DAEC0057F704 /* Deck.h */,
 				DBA9B6051845DAEC0057F704 /* Deck.m */,
