@@ -6,11 +6,19 @@
 //  Copyright (c) 2013 fleija. All rights reserved.
 //
 
+//abstract classes
 
 #import <UIKit/UIKit.h>
-
+#import "Deck.h"
 
 
 @interface CardGameViewController : UIViewController
+
+
+
+
+//protected
+//for subclasses
+- (Deck *)createDeck; //abstract
 
 @end

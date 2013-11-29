@@ -7,9 +7,9 @@
 //
 
 #import "CardGameViewController.h"
-#import "PlayingCardDeck.h"
+//#import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
-#import "Deck.h"
+//#import "Deck.h"
 
 @interface CardGameViewController ()
 /* deleted in lecture 3
@@ -34,9 +34,10 @@
 }
 
 
- -(Deck *)createDeck
+ -(Deck *)createDeck //abstract
  {
-     return [[PlayingCardDeck alloc]init];
+     return nil;
+     //return [[PlayingCardDeck alloc]init];
  }
 
 - (void) updateUI

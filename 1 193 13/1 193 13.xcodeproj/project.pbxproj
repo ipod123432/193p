@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB23A66D18484D3F00CC288C /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB23A66C18484D3F00CC288C /* PlayingCardGameViewController.m */; };
 		DB52B0801845CF4E00113EE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB52B07F1845CF4E00113EE8 /* Foundation.framework */; };
 		DB52B0821845CF4E00113EE8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB52B0811845CF4E00113EE8 /* CoreGraphics.framework */; };
 		DB52B0841845CF4E00113EE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB52B0831845CF4E00113EE8 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		DB23A66A1847DE0D00CC288C /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
+		DB23A66B18484D3F00CC288C /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
+		DB23A66C18484D3F00CC288C /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
 		DB52B07C1845CF4E00113EE8 /* 1 193 13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1 193 13.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB52B07F1845CF4E00113EE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DB52B0811845CF4E00113EE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				DB52B0911845CF4F00113EE8 /* Main.storyboard */,
+				DB23A66B18484D3F00CC288C /* PlayingCardGameViewController.h */,
+				DB23A66C18484D3F00CC288C /* PlayingCardGameViewController.m */,
 				DB52B0941845CF4F00113EE8 /* CardGameViewController.h */,
 				DB52B0951845CF4F00113EE8 /* CardGameViewController.m */,
 				DBA9B5F51845D7700057F704 /* Model */,
@@ -291,6 +296,7 @@
 				DB52B08C1845CF4E00113EE8 /* main.m in Sources */,
 				DBA9B6011845D9430057F704 /* PlayingCard.m in Sources */,
 				DBA9B5FE1845D8DF0057F704 /* Card.m in Sources */,
+				DB23A66D18484D3F00CC288C /* PlayingCardGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
