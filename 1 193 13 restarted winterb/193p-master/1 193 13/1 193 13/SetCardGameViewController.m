@@ -18,7 +18,11 @@
     return [[PlayingCardDeck alloc]init];
 }
 
-
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.type = @"Set Card Game";
+}
 
 
 @end

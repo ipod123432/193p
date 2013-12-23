@@ -21,7 +21,7 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *mode;
+
 
 @end
 
@@ -70,7 +70,8 @@
 
 - (IBAction)dealBitch {
     self.game = nil;
-    self.mode.enabled = YES;
+    //if (![self.type isEqualToString:@"Set Card Game"])
+        self.mode.enabled = YES;
     
     [self updateUI];
     self.moveDescriptionLabel.text = @"Reset";
@@ -97,6 +98,7 @@
     int chosenButtonIndex = [self.cardButtons indexOfObject:sender];
     self.game.mode = [self.mode selectedSegmentIndex] + 2;
     self.mode.enabled = NO;
+    self.game.type = self.type;
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
     // del in lec 3       self.flipCount++;

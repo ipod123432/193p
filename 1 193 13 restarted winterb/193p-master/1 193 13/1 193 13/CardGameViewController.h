@@ -14,8 +14,9 @@
 
 @interface CardGameViewController : UIViewController
 
-
-
+//assignment 3 #1
+@property (strong, nonatomic) NSString *type;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mode;
 
 //protected
 //for subclasses

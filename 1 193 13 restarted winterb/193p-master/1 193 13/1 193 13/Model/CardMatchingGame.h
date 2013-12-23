@@ -22,5 +22,7 @@
 @property (nonatomic) int mode; //0 is 2 card, 1 is 3 card
 @property (nonatomic) NSString *resultDescription;
 
+//assignment 3 #1
+@property (strong, nonatomic) NSString *type;
 
 @end

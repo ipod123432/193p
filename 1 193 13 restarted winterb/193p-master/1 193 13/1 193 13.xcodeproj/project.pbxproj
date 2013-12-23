@@ -58,7 +58,7 @@
 		DB52B08F1845CF4E00113EE8 /* CardGameAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameAppDelegate.m; sourceTree = "<group>"; };
 		DB52B0921845CF4F00113EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB52B0941845CF4F00113EE8 /* CardGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameViewController.h; sourceTree = "<group>"; };
-		DB52B0951845CF4F00113EE8 /* CardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CardGameViewController.m; path = "1 193 13/CardGameViewController.m"; sourceTree = "<group>"; };
+		DB52B0951845CF4F00113EE8 /* CardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameViewController.m; sourceTree = "<group>"; };
 		DB52B0971845CF4F00113EE8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DB52B09D1845CF4F00113EE8 /* 1 193 13Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "1 193 13Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB52B09E1845CF4F00113EE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -109,7 +109,6 @@
 		DB52B0731845CF4E00113EE8 = {
 			isa = PBXGroup;
 			children = (
-				DB52B0951845CF4F00113EE8 /* CardGameViewController.m */,
 				DB52B0851845CF4E00113EE8 /* 1 193 13 */,
 				DB52B0A41845CF4F00113EE8 /* 1 193 13Tests */,
 				DB52B07E1845CF4E00113EE8 /* Frameworks */,
@@ -146,6 +145,7 @@
 				DB23A66B18484D3F00CC288C /* PlayingCardGameViewController.h */,
 				DB23A66C18484D3F00CC288C /* PlayingCardGameViewController.m */,
 				DB52B0941845CF4F00113EE8 /* CardGameViewController.h */,
+				DB52B0951845CF4F00113EE8 /* CardGameViewController.m */,
 				DBA9B5F51845D7700057F704 /* Model */,
 				DB52B0971845CF4F00113EE8 /* Images.xcassets */,
 				DB52B0861845CF4E00113EE8 /* Supporting Files */,
@@ -192,9 +192,9 @@
 				DBA9B5FD1845D8DF0057F704 /* Card.h */,
 				DBA9B5FC1845D8DF0057F704 /* Card.m */,
 				DB86E7B618668231001E8784 /* SetCard.h */,
+				DB86E7B718668231001E8784 /* SetCard.m */,
 				DB23A66A1847DE0D00CC288C /* PlayingCard.h */,
 				DBA9B6001845D9430057F704 /* PlayingCard.m */,
-				DB86E7B718668231001E8784 /* SetCard.m */,
 				DBA9B6061845DAEC0057F704 /* Deck.h */,
 				DBA9B6051845DAEC0057F704 /* Deck.m */,
 				DBA9B6031845DAD90057F704 /* PlayingCardDeck.h */,

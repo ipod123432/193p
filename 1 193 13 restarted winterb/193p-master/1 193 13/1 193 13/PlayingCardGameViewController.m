@@ -18,6 +18,24 @@
     return [[PlayingCardDeck alloc]init];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.type = @"Playing Card Game";
+}
+
+/*
+ - (void)viewDidLoad
+ {
+ [super viewDidLoad];
+ [self touchCardButton:self.cardButton];
+ [self touchCardButton:self.cardButton];
+ self.flipCount = 0;
+ 
+ 
+ // careful technically already 2 flips, 1 card went thru
+ }
+ */
 
 
 @end

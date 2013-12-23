@@ -20,6 +20,7 @@
 @synthesize symbol = _symbol;
 @synthesize shading = _shading;
 @synthesize color = _color;
+@synthesize number = _number;
 -(void)setSymbol:(NSString *)symbol
 {
     if ([[SetCard validSymbols] containsObject:symbol]) {
@@ -54,13 +55,12 @@
 
 
 
-/* I can't remember how to package an int to NSNumber...
+// I can't remember how to package an int to NSNumber...
 -(void)setNumber:(NSUInteger)number
 {
-    if ([[SetCard validNumbers]containsObject:[number intValue])
+    if ([[SetCard validNumbers]containsObject:[NSNumber numberWithInteger:number]])
         _number=number;
 }
- */
 
 
 
