@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4531AF1F-1B96-4684-9E7A-4CF18CD97741</string>
+	<key>IDESourceControlProjectName</key>
+	<string>1 193 13</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C746CF33-EF0B-4195-B5BB-99EB3C564D5A</key>
+		<string>https://github.com/ipod123432/193p.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>1 193 13/1 193 13.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C746CF33-EF0B-4195-B5BB-99EB3C564D5A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ipod123432/193p.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C746CF33-EF0B-4195-B5BB-99EB3C564D5A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C746CF33-EF0B-4195-B5BB-99EB3C564D5A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cs193p.fuckitall.yolo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
