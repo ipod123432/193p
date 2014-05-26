@@ -16,6 +16,21 @@
     return [NSString stringWithFormat:@"%@ %@ %@ %lu", self.symbol, self.shading, self.color, (unsigned long)self.number];
 }
 
+-(int)match:(NSArray *)otherCards
+{
+    int score = 0;
+    if ([otherCards count])
+    {
+        for (SetCard *otherCard in otherCards)
+        {
+            // DO LATER PLZ
+        }
+        
+    }
+    
+    return score;
+}
+
 
 @synthesize symbol = _symbol;
 @synthesize shading = _shading;
