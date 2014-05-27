@@ -17,6 +17,13 @@
 
 @implementation CardMatchingGame
 
+- (NSUInteger)mode
+{
+    //default card mode is 2
+    if (!_mode) _mode=2;
+    return _mode;
+}
+
 - (NSMutableArray *)cards {
     if (!_cards) {
         _cards = [[NSMutableArray alloc] init];
@@ -49,6 +56,21 @@ static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 
+- (void)matchAll:(NSArray *)cards
+{
+    // maybe change to id later for ... that thing
+    for (Card *card in cards)
+    {
+        card.matched = YES;
+    }
+}
+- (void)unchooseAll:(NSArray *)cards
+{
+    for (Card *card in cards)
+    {
+        card.chosen = NO;
+    }
+}
 - (void)chooseCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
@@ -58,18 +80,26 @@ static const int COST_TO_CHOOSE = 1;
             card.chosen = NO;
         } else {
             // match against another card
+            NSMutableArray *daCards = [NSMutableArray new];
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
-                    int matchScore = [card match:@[otherCard]];
-                    if (matchScore) {
-                        self.score += matchScore * MATCH_BONUS;
-                        card.matched = YES;
-                        otherCard.matched = YES;
-                    } else {
-                        self.score -= MISMATCH_PENALTY;
-                        otherCard.chosen = NO;
+                    [daCards addObject:otherCard];
+                    if ([daCards count] == (self.mode-1))
+                    {
+                        break;
                     }
-                    break;
+                }
+            }
+            if ([daCards count] == (self.mode-1))
+            {
+                int matchScore = [card match:daCards];
+                if (matchScore) {
+                    self.score += matchScore * MATCH_BONUS;
+                    card.matched = YES;
+                    [self matchAll:daCards];
+                } else {
+                    self.score -= MISMATCH_PENALTY;
+                    [self unchooseAll:daCards];
                 }
             }
             self.score -= COST_TO_CHOOSE;

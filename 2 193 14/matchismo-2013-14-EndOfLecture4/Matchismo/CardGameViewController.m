@@ -16,6 +16,8 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mode;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
 @end
 
@@ -35,8 +37,44 @@
     return [[PlayingCardDeck alloc] init];
 }
 
+- (IBAction)modeChange:(id)sender {
+    int mode = [(UISegmentedControl *)sender selectedSegmentIndex];
+    self.game.mode = mode + 2;
+    NSLog(@"lol %d", self.game.mode);
+}
+
+- (IBAction)dealNow:(id)sender {
+    // loads alert confirm, which will handle actions
+    UIAlertView *dealAlert = [[UIAlertView alloc]initWithTitle:@"Redeal" message:@"Confirm redeal?" delegate:self cancelButtonTitle:nil otherButtonTitles:@"redeal", @"cancel", nil];
+    dealAlert.cancelButtonIndex = 1; //set cancel as cancel
+    // tag for identification when handling
+    dealAlert.tag = 1;
+    [dealAlert show];
+}
+
+// Handles confirmation window for Deal
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // tag indicates is Redeal alert
+    if (alertView.tag == 1)
+    {
+        if (buttonIndex == [alertView cancelButtonIndex])
+        {
+            //cancel clicked, nothing happen
+        } else {
+            //redeal
+            self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                                          usingDeck:[self createDeck]];
+            self.mode.enabled = YES;
+            [self updateUI];
+
+        }
+    }
+}
+
 - (IBAction)touchCardButton:(UIButton *)sender
 {
+    self.mode.enabled = NO;
     int cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
     [self updateUI];

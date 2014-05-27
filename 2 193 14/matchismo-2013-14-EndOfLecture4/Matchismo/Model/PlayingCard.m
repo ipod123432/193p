@@ -65,6 +65,43 @@
                 score = 4;
             }
         }
+    } else if ([otherCards count] == 2) {
+        id card = [otherCards firstObject];
+         // pops first object but this ver unnecessary.
+           // would've been used for much larger arrays
+        //NSMutableArray *mOthers = [otherCards mutableCopy];
+//        [mOthers removeObjectAtIndex:0];
+  //      otherCards = [[NSArray alloc] initWithArray:mOthers];
+        
+        id cardTwo = otherCards[1];
+        PlayingCard *otherC = nil;
+        if ([cardTwo isKindOfClass:[PlayingCard class]]) {
+            otherC = (PlayingCard *)cardTwo;
+        }
+        if ([card isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard = (PlayingCard *)card;
+            if ([self.suit isEqualToString:otherCard.suit]) {
+                score = 1;
+                if ([self.suit isEqualToString:otherC.suit])
+                {
+                    score += 2;
+                }
+            } else if (self.rank == otherCard.rank) {
+                score = 4;
+                if (self.rank == otherC.rank)
+                {
+                    score += 8;
+                }
+            } else {
+                if ([self match:@[otherC]] > [otherCard match:@[otherC]])
+                {
+                    score = [self match:@[otherC]];
+                } else {
+                    score = [otherCard match:@[otherC]];
+                }
+            }
+        }
+
     }
     
     return score;
