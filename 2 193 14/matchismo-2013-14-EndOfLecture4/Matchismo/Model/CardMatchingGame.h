@@ -20,5 +20,7 @@
 
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic) NSUInteger mode;
+@property (nonatomic) NSInteger lastScore;
+@property (nonatomic, strong) NSArray *lastCards;
 
 @end

@@ -81,6 +81,7 @@ static const int COST_TO_CHOOSE = 1;
         } else {
             // match against another card
             NSMutableArray *daCards = [NSMutableArray new];
+            self.lastScore = 0;
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
                     [daCards addObject:otherCard];
@@ -90,15 +91,18 @@ static const int COST_TO_CHOOSE = 1;
                     }
                 }
             }
+            self.lastCards = [daCards arrayByAddingObject:card];
             if ([daCards count] == (self.mode-1))
             {
                 int matchScore = [card match:daCards];
                 if (matchScore) {
                     self.score += matchScore * MATCH_BONUS;
+                    self.lastScore = matchScore * MATCH_BONUS;
                     card.matched = YES;
                     [self matchAll:daCards];
                 } else {
                     self.score -= MISMATCH_PENALTY;
+                    self.lastScore = -MISMATCH_PENALTY;
                     [self unchooseAll:daCards];
                 }
             }

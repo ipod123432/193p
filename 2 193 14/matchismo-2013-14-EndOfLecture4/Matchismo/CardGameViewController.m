@@ -40,7 +40,6 @@
 - (IBAction)modeChange:(id)sender {
     int mode = [(UISegmentedControl *)sender selectedSegmentIndex];
     self.game.mode = mode + 2;
-    NSLog(@"lol %d", self.game.mode);
 }
 
 - (IBAction)dealNow:(id)sender {
@@ -66,6 +65,7 @@
             self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                           usingDeck:[self createDeck]];
             self.mode.enabled = YES;
+            self.resultLabel.text = @"";
             [self updateUI];
 
         }
@@ -92,6 +92,24 @@
         cardButton.enabled = !card.matched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    if (self.game) {
+        NSString *description = @"";
+        if ([self.game.lastCards count])
+        {
+            NSMutableArray *cardContents =  [NSMutableArray array];
+            for (Card *card in self.game.lastCards)
+            {
+                [cardContents addObject:card.contents];
+            }
+            description = [cardContents componentsJoinedByString:@" "];
+        }
+        if (self.game.lastScore > 0) {
+            description = [NSString stringWithFormat:@"Matched %@ for %d points.", description, self.game.lastScore];
+        } else if (self.game.lastScore < 0) {
+            description = [NSString stringWithFormat:@"%@ don't match. %d point penalty.", description, -self.game.lastScore];
+        }
+        self.resultLabel.text = description;
+    }
 }
 
 - (NSString *)titleForCard:(Card *)card
