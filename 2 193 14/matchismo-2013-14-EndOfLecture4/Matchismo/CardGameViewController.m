@@ -18,10 +18,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mode;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (nonatomic, strong) NSMutableArray *pastMoves;
+@property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
 @end
 
 @implementation CardGameViewController
+
+- (IBAction)slideChanged:(UISlider *)sender {
+    int discreteVal = round([sender value]); //round
+    [sender setValue:(float)discreteVal];
+    self.resultLabel.text = self.pastMoves[discreteVal];
+    self.resultLabel.alpha = 0.6;
+}
 
 - (CardMatchingGame *)game
 {
@@ -66,6 +75,8 @@
                                                           usingDeck:[self createDeck]];
             self.mode.enabled = YES;
             self.resultLabel.text = @"";
+            self.pastMoves = [NSMutableArray arrayWithObject:@""];
+            self.game.mode = [self.mode selectedSegmentIndex] + 2;
             [self updateUI];
 
         }
@@ -109,7 +120,17 @@
             description = [NSString stringWithFormat:@"%@ don't match. %d point penalty.", description, -self.game.lastScore];
         }
         self.resultLabel.text = description;
+        [self.pastMoves addObject: description];
+        self.historySlider.maximumValue = [self.pastMoves count]-1;
+        self.historySlider.value = self.historySlider.maximumValue;
+        self.resultLabel.alpha = 1;
     }
+}
+
+-(NSMutableArray *)pastMoves
+{
+    if (!_pastMoves) _pastMoves = [NSMutableArray arrayWithObject:@""];
+    return _pastMoves;
 }
 
 - (NSString *)titleForCard:(Card *)card

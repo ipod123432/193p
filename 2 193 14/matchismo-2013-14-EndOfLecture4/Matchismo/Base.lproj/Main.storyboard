@@ -413,10 +413,18 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="59y-ow-0Eg"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="06b-AM-d2Y">
+                                <rect key="frame" x="95" y="435" width="107" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="slideChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Xqg-MD-M7R"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="historySlider" destination="06b-AM-d2Y" id="raW-au-WbI"/>
                         <outlet property="mode" destination="Lqf-AW-OQt" id="X1V-ZG-xMS"/>
                         <outlet property="resultLabel" destination="AuU-wY-pyL" id="fQM-kY-HqO"/>
                         <outlet property="scoreLabel" destination="0d6-Ws-Dtn" id="H0r-VK-DNE"/>
