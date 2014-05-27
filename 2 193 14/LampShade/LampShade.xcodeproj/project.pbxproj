@@ -21,6 +21,10 @@
 		DBB568FE19340375004C8AF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB568E019340375004C8AF5 /* UIKit.framework */; };
 		DBB5690619340375004C8AF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBB5690419340375004C8AF5 /* InfoPlist.strings */; };
 		DBB5690819340375004C8AF5 /* LampShadeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5690719340375004C8AF5 /* LampShadeTests.m */; };
+		DBB5691319340462004C8AF5 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5691219340462004C8AF5 /* Card.m */; };
+		DBB5691619340671004C8AF5 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5691519340671004C8AF5 /* Deck.m */; };
+		DBB56919193408F2004C8AF5 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB56918193408F2004C8AF5 /* PlayingCard.m */; };
+		DBB5691C1934117B004C8AF5 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5691B1934117B004C8AF5 /* PlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		DBB5690319340375004C8AF5 /* LampShadeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LampShadeTests-Info.plist"; sourceTree = "<group>"; };
 		DBB5690519340375004C8AF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBB5690719340375004C8AF5 /* LampShadeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LampShadeTests.m; sourceTree = "<group>"; };
+		DBB5691119340462004C8AF5 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		DBB5691219340462004C8AF5 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		DBB5691419340671004C8AF5 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		DBB5691519340671004C8AF5 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		DBB56917193408F2004C8AF5 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		DBB56918193408F2004C8AF5 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
+		DBB5691A1934117B004C8AF5 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
+		DBB5691B1934117B004C8AF5 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,14 @@
 				DBB568EB19340375004C8AF5 /* AppDelegate.h */,
 				DBB568EC19340375004C8AF5 /* AppDelegate.m */,
 				DBB568EE19340375004C8AF5 /* Main.storyboard */,
+				DBB5691119340462004C8AF5 /* Card.h */,
+				DBB5691219340462004C8AF5 /* Card.m */,
+				DBB5691419340671004C8AF5 /* Deck.h */,
+				DBB5691519340671004C8AF5 /* Deck.m */,
+				DBB56917193408F2004C8AF5 /* PlayingCard.h */,
+				DBB56918193408F2004C8AF5 /* PlayingCard.m */,
+				DBB5691A1934117B004C8AF5 /* PlayingCardDeck.h */,
+				DBB5691B1934117B004C8AF5 /* PlayingCardDeck.m */,
 				DBB568F119340375004C8AF5 /* ViewController.h */,
 				DBB568F219340375004C8AF5 /* ViewController.m */,
 				DBB568F419340375004C8AF5 /* Images.xcassets */,
@@ -196,6 +216,7 @@
 		DBB568D119340375004C8AF5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = handWave;
 				TargetAttributes = {
@@ -249,9 +270,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB56919193408F2004C8AF5 /* PlayingCard.m in Sources */,
+				DBB5691619340671004C8AF5 /* Deck.m in Sources */,
 				DBB568F319340375004C8AF5 /* ViewController.m in Sources */,
 				DBB568ED19340375004C8AF5 /* AppDelegate.m in Sources */,
+				DBB5691C1934117B004C8AF5 /* PlayingCardDeck.m in Sources */,
 				DBB568E919340375004C8AF5 /* main.m in Sources */,
+				DBB5691319340462004C8AF5 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

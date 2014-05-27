@@ -14,6 +14,32 @@
 
 @implementation ViewController
 
+
+
+- (IBAction)touchCardButton:(UIButton *)sender {
+    if ([sender.currentTitle length]) {
+        UIImage *cardImage = [UIImage imageNamed:@"cardback"];
+        [sender setBackgroundImage:cardImage forState:UIControlStateNormal];
+        [sender setTitle:@"" forState:UIControlStateNormal];
+    } else {
+        [sender setBackgroundImage: [UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+        [sender setTitle:@"A" forState:UIControlStateNormal];
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
