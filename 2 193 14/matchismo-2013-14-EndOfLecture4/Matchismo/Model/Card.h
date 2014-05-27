@@ -2,7 +2,7 @@
 //  Card.h
 //  Matchismo
 //
-//  Created by Martin Mandl on 03.11.13.
+//  Created by Roger Zou on 05.26.14.
 //  Copyright (c) 2013 m2m server software gmbh. All rights reserved.
 //
 
