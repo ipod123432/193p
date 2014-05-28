@@ -19,6 +19,7 @@
 +(NSArray *)validShapes;
 +(NSArray *)validShadings;
 +(NSArray *)rankStrings;
++(NSArray *)validNumbers;
 +(NSUInteger)maxRank;
 
 @end

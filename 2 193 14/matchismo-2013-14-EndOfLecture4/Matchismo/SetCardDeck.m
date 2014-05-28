@@ -12,7 +12,24 @@
 
 -(instancetype) init
 {
-    
+    self = [super init];
+    if (self) {
+        for (NSString *shape in [SetCard validShapes]) {
+            for (NSString *shading in [SetCard validShadings]) {
+                for (NSString *color in [SetCard validColors]) {
+                    for (NSNumber *rank in [SetCard validNumbers]) {
+                        SetCard *card = [[SetCard alloc]init];
+                        card.rank = rank;
+                        card.shape = shape;
+                        card.shading = shading;
+                        card.color = color;
+                        [self addCard:card];
+                    }
+                }
+            }
+        }
+    }
+    return self;
 }
 
 @end

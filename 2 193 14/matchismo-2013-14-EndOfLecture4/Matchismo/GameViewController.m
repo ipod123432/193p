@@ -38,15 +38,7 @@
 
 - (void)updateUI
 {
-    for (UIButton *cardButton in self.cardButtons) {
-        int cardIndex = [self.cardButtons indexOfObject:cardButton];
-        Card *card = [self.game cardAtIndex:cardIndex];
-        [cardButton setTitle:[self titleForCard:card]
-                    forState:UIControlStateNormal];
-        [cardButton setBackgroundImage:[self backgroundImageForCard:card]
-                              forState:UIControlStateNormal];
-        cardButton.enabled = !card.matched;
-    }
+    
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     if (self.game) {
         NSString *description = @"";
@@ -78,16 +70,21 @@
     return _pastMoves;
 }
 
-- (NSString *)titleForCard:(Card *)card
+-(NSString *)titleForCard:(Card *)card
 {
-    return card.chosen ? card.contents : @"";
+    // to be overridden
+    return nil;
 }
-
-- (UIImage *)backgroundImageForCard:(Card *)card
+-(UIImage *)backgroundImageForCard:(Card *)card
 {
-    return [UIImage imageNamed:card.chosen ? @"cardfront" : @"cardback"];
+    // to be overridden
+    return nil;
 }
-
+-(NSAttributedString *)attributedTitleForCard:(Card *)card
+{
+    //to be overridden
+    return nil;
+}
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {

@@ -124,6 +124,10 @@
 {
     return @[@"solid",@"striped",@"empty"];
 }
++(NSArray *)validNumbers
+{
+    return @[@1,@2,@3];
+}
 +(NSArray *)rankStrings
 {
     return @[@"1",@"2",@"3"];

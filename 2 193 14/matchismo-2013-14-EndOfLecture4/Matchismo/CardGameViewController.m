@@ -18,7 +18,15 @@
 
 
 
+- (NSString *)titleForCard:(Card *)card
+{
+    return card.chosen ? card.contents : @"";
+}
 
+- (UIImage *)backgroundImageForCard:(Card *)card
+{
+    return [UIImage imageNamed:card.chosen ? @"cardfront" : @"cardback"];
+}
 
 - (Deck *)createDeck
 {
@@ -26,7 +34,19 @@
 }
 
 
-
+-(void)updateUI
+{
+    [super updateUI];
+    for (UIButton *cardButton in self.cardButtons) {
+        int cardIndex = [self.cardButtons indexOfObject:cardButton];
+        Card *card = [self.game cardAtIndex:cardIndex];
+        [cardButton setTitle:[self titleForCard:card]
+                    forState:UIControlStateNormal];
+        [cardButton setBackgroundImage:[self backgroundImageForCard:card]
+                              forState:UIControlStateNormal];
+        cardButton.enabled = !card.matched;
+    }
+}
 
 
 

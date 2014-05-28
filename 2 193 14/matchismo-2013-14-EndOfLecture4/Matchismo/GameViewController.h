@@ -21,5 +21,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
 - (Deck *)createDeck;
+- (void)updateUI;
+- (NSString *)titleForCard:(Card *)card;
+- (UIImage *)backgroundImageForCard:(Card *)card;
 
 @end
