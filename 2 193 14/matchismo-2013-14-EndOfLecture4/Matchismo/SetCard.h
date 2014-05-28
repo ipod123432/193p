@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSString *color;
 @property (strong, nonatomic) NSString *shape;
 @property (strong, nonatomic) NSString *shading;
-@property (nonatomic) NSUInteger rank;
+@property (strong, nonatomic) NSNumber *rank;
 
 +(NSArray *)validColors;
 +(NSArray *)validShapes;

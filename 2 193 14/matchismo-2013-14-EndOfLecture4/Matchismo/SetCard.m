@@ -10,6 +10,57 @@
 
 @implementation SetCard
 
+-(BOOL)compareThree:(NSArray *)threesome usingSelector:(SEL)cSelector
+{
+    BOOL place = false;
+    // all equal
+    if ([threesome[0] performSelector:cSelector withObject:threesome[1]] && [threesome[0] performSelector:cSelector withObject:threesome[2]]) {
+        place = true;
+    }
+    // tests if any combo same. two same one diff
+    else if (([threesome[0] performSelector:cSelector withObject:threesome[1]] || [threesome[0] performSelector:cSelector withObject:threesome[2]]) || [threesome[1] performSelector:cSelector withObject:threesome[2]])
+    {
+        place = false;
+    }
+    // all diff
+    else {
+        place = true;
+    }
+    return place;
+}
+
+-(int)match:(NSArray *)otherCards
+{
+    int score = 0;
+    if ([otherCards count] == 2) {
+        id card = otherCards[0];
+        id cardTwo = otherCards[1];
+        if ([cardTwo isKindOfClass:[SetCard class]] &&
+            [card isKindOfClass:[SetCard class]])
+        {
+            SetCard *setOne = (SetCard *)card;
+            SetCard *setTwo = (SetCard *)cardTwo;
+            
+            // XOR is ^ ?
+            
+            NSArray *ranks = @[self.rank, setOne.rank, setTwo.rank];
+            NSArray *colors = @[self.color, setOne.color, setTwo.color];
+            NSArray *shadings = @[self.shading, setOne.shading, setTwo.shading];
+            NSArray *shapes = @[self.shape, setOne.shape, setTwo.shape];
+            if (([self compareThree:ranks usingSelector:@selector(isEqualToNumber:)] &&
+                 [self compareThree:colors usingSelector:@selector(isEqualToString:)]) &&
+                ([self compareThree:shadings usingSelector:@selector(isEqualToString:)] &&
+                 [self compareThree:shapes usingSelector:@selector(isEqualToString:)]))
+            {
+                score = 2;
+            }
+        }
+    }
+    
+    return score;
+}
+
+
 @synthesize color = _color;
 @synthesize shape = _shape;
 @synthesize shading = _shading;
@@ -48,16 +99,16 @@
 {
     return _shading ? _shading : @"?";
 }
--(void)setRank:(NSUInteger)rank
+-(void)setRank:(NSNumber *)rank
 {
-    if ([[SetCard rankStrings] containsObject:[NSString stringWithFormat:@"%d",rank]])
+    if ([[SetCard rankStrings] containsObject:[NSString stringWithFormat:@"%@",rank]])
     {
         _rank = rank;
     }
 }
--(NSUInteger)rank
+-(NSNumber *)rank
 {
-    return _rank ? _rank : -404;
+    return _rank ? _rank : @-404;
 }
 
 +(NSArray *)validColors
