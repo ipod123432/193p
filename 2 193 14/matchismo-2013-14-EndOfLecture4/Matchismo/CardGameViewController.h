@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameViewController.h"
+#import "PlayingCardDeck.h"
 
-@interface CardGameViewController : UIViewController <UIAlertViewDelegate>
+
+@interface CardGameViewController : GameViewController <UIAlertViewDelegate>
+
+
+
 
 @end
