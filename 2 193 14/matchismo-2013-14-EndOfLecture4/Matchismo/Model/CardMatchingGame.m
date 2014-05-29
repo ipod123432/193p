@@ -73,6 +73,7 @@ static const int COST_TO_CHOOSE = 1;
 }
 - (void)chooseCardAtIndex:(NSUInteger)index
 {
+    NSLog(@"cardChoose failing");
     Card *card = [self cardAtIndex:index];
     
     if (!card.isMatched) {
@@ -110,6 +111,7 @@ static const int COST_TO_CHOOSE = 1;
             card.chosen = YES;
         }
     }
+    NSLog(@"cardChoose worked");
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index

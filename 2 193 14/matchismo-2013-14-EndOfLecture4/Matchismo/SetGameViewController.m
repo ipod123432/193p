@@ -28,8 +28,7 @@
     if ([UIColor respondsToSelector:selColor] == YES)
     {
         bicol = [UIColor performSelector:selColor];
-        
-        [bicol colorWithAlphaComponent:<#(CGFloat)#>]
+        bicol = [bicol colorWithAlphaComponent:[SetCard shadingToCGFloat:shading]];
     }
     return bicol;
 }
@@ -51,7 +50,26 @@
     }
     return nil;
 }
+- (UIImage *)backgroundImageForCard:(Card *)card
+{
+    return [UIImage imageNamed:card.chosen ? @"cardfront" : @"cardback"];
+}
 
+// oh I need to modify card.contents? nah
+-(void)updateUI
+{
+    [super updateUI];
+    for (UIButton *cardButton in self.cardButtons) {
+        int cardIndex = [self.cardButtons indexOfObject:cardButton];
+        Card *card = [self.game cardAtIndex:cardIndex];
+        [cardButton setAttributedTitle:[self attributedTitleForCard:card] forState:UIControlStateNormal];
+        [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+        cardButton.enabled = !card.matched;
+    }
+    
+    
+    
+}
 
 
 

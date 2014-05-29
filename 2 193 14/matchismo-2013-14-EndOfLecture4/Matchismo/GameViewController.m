@@ -14,6 +14,7 @@
 
 @implementation GameViewController
 
+// to be overridden
 - (IBAction)slideChanged:(UISlider *)sender {
     int discreteVal = round([sender value]); //round
     [sender setValue:(float)discreteVal];
@@ -21,6 +22,7 @@
     self.resultLabel.alpha = 0.6;
 }
 
+// to be overridden
 - (IBAction)modeChange:(id)sender {
     int mode = [(UISegmentedControl *)sender selectedSegmentIndex];
     self.game.mode = mode + 2;
@@ -36,32 +38,35 @@
     [dealAlert show];
 }
 
+// Handles confirmation window for Deal
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // tag indicates is Redeal alert
+    if (alertView.tag == 1)
+    {
+        if (buttonIndex == [alertView cancelButtonIndex])
+        {
+            //cancel clicked, nothing happen
+        } else {
+            //redeal
+            self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                                          usingDeck:[self createDeck]];
+            self.mode.enabled = YES;
+            self.resultLabel.text = @"";
+            self.pastMoves = [NSMutableArray arrayWithObject:@""];
+            self.game.mode = [self.mode selectedSegmentIndex] + 2;
+            [self updateUI];
+            
+        }
+    }
+}
+
+
 - (void)updateUI
 {
-    
+    NSLog(@"updateUI");
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    if (self.game) {
-        NSString *description = @"";
-        if ([self.game.lastCards count])
-        {
-            NSMutableArray *cardContents =  [NSMutableArray array];
-            for (Card *card in self.game.lastCards)
-            {
-                [cardContents addObject:card.contents];
-            }
-            description = [cardContents componentsJoinedByString:@" "];
-        }
-        if (self.game.lastScore > 0) {
-            description = [NSString stringWithFormat:@"Matched %@ for %d points.", description, self.game.lastScore];
-        } else if (self.game.lastScore < 0) {
-            description = [NSString stringWithFormat:@"%@ don't match. %d point penalty.", description, -self.game.lastScore];
-        }
-        self.resultLabel.text = description;
-        [self.pastMoves addObject: description];
-        self.historySlider.maximumValue = [self.pastMoves count]-1;
-        self.historySlider.value = self.historySlider.maximumValue;
-        self.resultLabel.alpha = 1;
-    }
+    
 }
 
 -(NSMutableArray *)pastMoves
@@ -91,32 +96,10 @@
     self.mode.enabled = NO;
     int cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
+    NSLog(@"no fail yet");
     [self updateUI];
 }
 
-
-// Handles confirmation window for Deal
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    // tag indicates is Redeal alert
-    if (alertView.tag == 1)
-    {
-        if (buttonIndex == [alertView cancelButtonIndex])
-        {
-            //cancel clicked, nothing happen
-        } else {
-            //redeal
-            self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                          usingDeck:[self createDeck]];
-            self.mode.enabled = YES;
-            self.resultLabel.text = @"";
-            self.pastMoves = [NSMutableArray arrayWithObject:@""];
-            self.game.mode = [self.mode selectedSegmentIndex] + 2;
-            [self updateUI];
-            
-        }
-    }
-}
 
 
 - (CardMatchingGame *)game
