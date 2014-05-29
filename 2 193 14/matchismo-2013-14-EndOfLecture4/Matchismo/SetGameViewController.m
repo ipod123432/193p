@@ -33,22 +33,27 @@
     return bicol;
 }
 
+
 - (NSAttributedString *)attributedTitleForCard:(Card *)card
 {
-    if ([card isKindOfClass:[SetCard class]]) {
-        SetCard *sCard = (SetCard *)card;
-        
-        // shading color shape rank
-        NSMutableAttributedString *title = [NSMutableAttributedString new];
-        NSDictionary *attributes = @{@"NSForegroundColorAttributeName":[self colorConvert:sCard.color withShading:sCard.shading],
-                                     };
-        for (int i = [sCard.rank intValue]; i > 0; i--) {
-            NSMutableAttributedString *dastring = [[NSMutableAttributedString alloc]initWithString:[SetCard shapeStrings][sCard.shape] attributes:attributes];
-            [title appendAttributedString:dastring];
+    if (card.chosen) {
+        if ([card isKindOfClass:[SetCard class]]) {
+            SetCard *sCard = (SetCard *)card;
+            
+            // shading color shape rank
+            NSMutableAttributedString *title = [NSMutableAttributedString new];
+            NSDictionary *attributes = @{@"NSForegroundColorAttributeName":[self colorConvert:sCard.color withShading:sCard.shading],
+                                         };
+            for (int i = [sCard.rank intValue]; i > 0; i--) {
+                NSMutableAttributedString *dastring = [[NSMutableAttributedString alloc]initWithString:[SetCard shapeStrings][sCard.shape] attributes:attributes];
+                [title appendAttributedString:dastring];
+            }
+            return title;
         }
-        return title;
+        return nil;
+    } else {
+        return [[NSAttributedString alloc]initWithString:@""];
     }
-    return nil;
 }
 - (UIImage *)backgroundImageForCard:(Card *)card
 {
@@ -68,7 +73,37 @@
     }
     
     
-    
+    if (self.game) {
+        NSMutableAttributedString *descrption = [[NSMutableAttributedString alloc]initWithString:@""];
+        NSMutableAttributedString *resdes = [[NSMutableAttributedString alloc]initWithString:@""];
+        if ([self.game.lastCards count])
+        {
+            for (Card *cdd in self.game.lastCards)
+            {
+                if ([cdd isKindOfClass:[SetCard class]])
+                {
+                    SetCard *card = (SetCard *)cdd;
+                    NSAttributedString *space = [[NSAttributedString alloc]initWithString:@""];
+                    NSAttributedString *cardatts = [self attributedTitleForCard:card];
+                    [descrption appendAttributedString:cardatts];
+                    [descrption appendAttributedString:space];
+                }
+            }
+            if (self.game.lastScore > 0) {
+                [resdes appendAttributedString:([[NSAttributedString alloc] initWithString:@"Matched "])];
+                [resdes appendAttributedString:descrption];
+                [resdes appendAttributedString:([[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"for %d points.", self.game.lastScore]])];
+            } else if (self.game.lastScore < 0) {
+                [resdes appendAttributedString:descrption];
+                [resdes appendAttributedString:([[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"don't match. %d point penalty.", -self.game.lastScore]])];
+            }
+            self.resultLabel.attributedText = resdes;
+            [self.pastMoves addObject:resdes];
+            self.historySlider.maximumValue = [self.pastMoves count]-1;
+            self.historySlider.value = self.historySlider.maximumValue;
+            self.resultLabel.alpha = 1;
+        }
+    }
 }
 
 
@@ -96,6 +131,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // cuz it's Set. Needs to be modified so not default 2 lol.
+    self.game.mode = 3;
 }
 
 - (void)didReceiveMemoryWarning

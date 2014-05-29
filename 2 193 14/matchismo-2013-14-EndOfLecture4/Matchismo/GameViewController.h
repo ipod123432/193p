@@ -26,4 +26,5 @@
 - (UIImage *)backgroundImageForCard:(Card *)card;
 - (NSAttributedString *)attributedTitleForCard:(Card *)card;
 
+
 @end
