@@ -24,5 +24,6 @@
 - (void)updateUI;
 - (NSString *)titleForCard:(Card *)card;
 - (UIImage *)backgroundImageForCard:(Card *)card;
+- (NSAttributedString *)attributedTitleForCard:(Card *)card;
 
 @end

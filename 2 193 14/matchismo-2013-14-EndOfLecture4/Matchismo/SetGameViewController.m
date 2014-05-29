@@ -19,7 +19,38 @@
     return [[SetCardDeck alloc]init];
 }
 
+// convert color copied from stack overflow
+-(UIColor *)colorConvert:(NSString *)color withShading:(NSString *)shading
+{
+    NSString *colorColor = [color stringByAppendingString:@"Color"];
+    UIColor *bicol = nil;
+    SEL selColor = NSSelectorFromString(colorColor);
+    if ([UIColor respondsToSelector:selColor] == YES)
+    {
+        bicol = [UIColor performSelector:selColor];
+        
+        [bicol colorWithAlphaComponent:<#(CGFloat)#>]
+    }
+    return bicol;
+}
 
+- (NSAttributedString *)attributedTitleForCard:(Card *)card
+{
+    if ([card isKindOfClass:[SetCard class]]) {
+        SetCard *sCard = (SetCard *)card;
+        
+        // shading color shape rank
+        NSMutableAttributedString *title = [NSMutableAttributedString new];
+        NSDictionary *attributes = @{@"NSForegroundColorAttributeName":[self colorConvert:sCard.color withShading:sCard.shading],
+                                     };
+        for (int i = [sCard.rank intValue]; i > 0; i--) {
+            NSMutableAttributedString *dastring = [[NSMutableAttributedString alloc]initWithString:[SetCard shapeStrings][sCard.shape] attributes:attributes];
+            [title appendAttributedString:dastring];
+        }
+        return title;
+    }
+    return nil;
+}
 
 
 

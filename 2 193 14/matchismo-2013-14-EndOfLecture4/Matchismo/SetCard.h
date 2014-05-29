@@ -21,5 +21,7 @@
 +(NSArray *)rankStrings;
 +(NSArray *)validNumbers;
 +(NSUInteger)maxRank;
++(NSDictionary *)shapeStrings;
++(CGFloat)shadingToCGFloat:(NSString *)shading;
 
 @end

@@ -120,9 +120,26 @@
 {
     return @[@"triangle",@"circle",@"square"];
 }
++(NSDictionary *)shapeStrings
+{
+    return @{
+             [SetCard validShapes][0]:@"▲",
+             [SetCard validShapes][1]:@"●",
+             [SetCard validShapes][2]:@"■"
+             };
+}
 +(NSArray *)validShadings
 {
-    return @[@"solid",@"striped",@"empty"];
+    return @[@"empty",@"striped",@"solid"];
+}
++(CGFloat)shadingToCGFloat:(NSString *)shading
+{
+    NSDictionary *shadings = @{[SetCard validShadings][0] : @0.3,
+      [SetCard validShadings][1] : @0.6,
+      [SetCard validShadings][2] : @1
+      };
+    CGFloat floatval = (CGFloat) [(shadings[shading]) floatValue];
+    return floatval;
 }
 +(NSArray *)validNumbers
 {
@@ -136,5 +153,6 @@
 {
     return [[self rankStrings]count];
 }
+
 
 @end
