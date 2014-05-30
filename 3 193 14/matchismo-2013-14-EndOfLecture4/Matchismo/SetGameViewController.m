@@ -19,7 +19,17 @@
     return [[SetCardDeck alloc]init];
 }
 
-
+- (NSAttributedString *)attributedTitleForCard:(Card *)card
+{
+    if ([card isKindOfClass:[SetCard class]]) {
+        SetCard *newCard = (SetCard *)card;
+        
+        // to be replaced later
+        return [[NSAttributedString alloc]initWithString:newCard.contents];
+    } else {
+        return nil;
+    }
+}
 
 
 
@@ -50,6 +60,8 @@
     
     // Set uses 3 cards so put into 3 card mode
     self.game.mode = 3;
+    // nil b/c no segmented control with Set, only 3 card mode
+    self.mode = nil;
 }
 
 - (void)didReceiveMemoryWarning

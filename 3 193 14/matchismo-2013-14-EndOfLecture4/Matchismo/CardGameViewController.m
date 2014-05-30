@@ -11,24 +11,13 @@
 
 @interface CardGameViewController ()
 
-
 @end
 
 @implementation CardGameViewController
-
-
-
-
 
 - (Deck *)createDeck
 {
     return [[PlayingCardDeck alloc] init];
 }
-
-
-
-
-
-
 
 @end

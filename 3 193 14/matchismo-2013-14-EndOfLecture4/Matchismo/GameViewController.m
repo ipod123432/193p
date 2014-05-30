@@ -41,8 +41,15 @@
     for (UIButton *cardButton in self.cardButtons) {
         int cardIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardIndex];
-        [cardButton setTitle:[self titleForCard:card]
-                    forState:UIControlStateNormal];
+        
+        if ([self attributedTitleForCard:card])
+        {
+            [cardButton setAttributedTitle:[self attributedTitleForCard:card] forState:UIControlStateNormal];
+        } else {
+            [cardButton setTitle:[self titleForCard:card]
+                        forState:UIControlStateNormal];
+        }
+        
         [cardButton setBackgroundImage:[self backgroundImageForCard:card]
                               forState:UIControlStateNormal];
         cardButton.enabled = !card.matched;
@@ -81,6 +88,12 @@
 - (NSString *)titleForCard:(Card *)card
 {
     return card.chosen ? card.contents : @"";
+}
+
+- (NSAttributedString *)attributedTitleForCard:(Card *)card
+{
+    // to be overridden
+    return nil;
 }
 
 - (UIImage *)backgroundImageForCard:(Card *)card
