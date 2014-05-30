@@ -47,6 +47,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Set uses 3 cards so put into 3 card mode
+    self.game.mode = 3;
 }
 
 - (void)didReceiveMemoryWarning

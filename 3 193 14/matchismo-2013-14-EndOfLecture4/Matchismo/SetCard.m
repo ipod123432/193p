@@ -61,6 +61,47 @@
 }
 
 
+/* "solutions" matching method, doesn't account for if a b b combo
+ http://cs193p.m2m.at/cs193p-assignment-3-task-2-fall-2013-14/#more-2436
+ 
+ - (int)match:(NSArray *)otherCards
+ {
+ int score = 0;
+ if ([otherCards count] == self.numberOfMatchingCards - 1) {
+ NSMutableArray *colors = [[NSMutableArray alloc] init];
+ NSMutableArray *symbols = [[NSMutableArray alloc] init];
+ NSMutableArray *shadings = [[NSMutableArray alloc] init];
+ NSMutableArray *numbers = [[NSMutableArray alloc] init];
+ [colors addObject:self.color];
+ [symbols addObject:self.symbol];
+ [shadings addObject:self.shading];
+ [numbers addObject:@(self.number)];
+ for (id otherCard in otherCards) {
+ if ([otherCard isKindOfClass:[SetCard class]]) {
+ SetCard *otherSetCard = (SetCard *)otherCard;
+ if (![colors containsObject:otherSetCard.color])
+ [colors addObject:otherSetCard.color];
+ if (![symbols containsObject:otherSetCard.symbol])
+ [symbols addObject:otherSetCard.symbol];
+ if (![shadings containsObject:otherSetCard.shading])
+ [shadings addObject:otherSetCard.shading];
+ if (![numbers containsObject:@(otherSetCard.number)])
+ [numbers addObject:@(otherSetCard.number)];
+ if (([colors count] == 1 || [colors count] == self.numberOfMatchingCards)
+ && ([symbols count] == 1 || [symbols count] == self.numberOfMatchingCards)
+ && ([shadings count] == 1 || [shadings count] == self.numberOfMatchingCards)
+ && ([numbers count] == 1 || [numbers count] == self.numberOfMatchingCards)) {
+ score = 4;
+ }
+ }
+ }
+ }
+ return score;
+ }
+ 
+ */
+
+
 @synthesize color = _color;
 @synthesize shape = _shape;
 @synthesize shading = _shading;
@@ -118,7 +159,7 @@
 //▲ ● ■
 +(NSArray *)validShapes
 {
-    return @[@"triangle",@"circle",@"square"];
+    return @[@"oval",@"squiggle",@"diamond"];
 }
 +(NSArray *)validShadings
 {
@@ -131,6 +172,12 @@
 +(NSUInteger)maxRank
 {
     return [[self rankStrings]count];
+}
+
+// for debugging
+-(NSString *)contents
+{
+    return [NSString stringWithFormat:@"%@%@%@%d",self.shape,self.shading,self.color,self.rank];
 }
 
 @end
