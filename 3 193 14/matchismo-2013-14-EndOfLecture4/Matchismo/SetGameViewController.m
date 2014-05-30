@@ -19,28 +19,55 @@
     return [[SetCardDeck alloc]init];
 }
 
+- (UIColor *)colorStringToUIColor:(NSString *)color
+{
+    NSDictionary *dict = @{
+      @"red" : [UIColor redColor],
+      @"green" : [UIColor greenColor],
+      @"blue" : [UIColor blueColor]
+      };
+    return dict[color];
+}
+
+- (NSString *)shapeToShape:(NSString *)shape
+{
+    NSDictionary *dict = @{
+                           @"oval" : @"●",
+                           @"diamond" : @"▲",
+                           @"squiggle" : @"■"
+                           };
+    return dict[shape];
+}
+
+- (NSInteger)shadingToFloat:(NSString *)shading
+{
+    NSDictionary *dict = @{
+                           @"solid" : @1.0,
+                           @"striped" : @0.7,
+                           @"empty" : @0.3
+                           };
+    return [dict[shading]floatValue];
+}
+
 - (NSAttributedString *)attributedTitleForCard:(Card *)card
 {
     if ([card isKindOfClass:[SetCard class]]) {
         SetCard *newCard = (SetCard *)card;
-        
+        NSMutableString *atstr = [[NSMutableString alloc]initWithString:@""];
+        for (int rank = newCard.rank; rank > 0; rank--) {
+            [atstr appendString:[self shapeToShape: newCard.shape]];
+        }
+        return [[NSAttributedString alloc]
+                initWithString:atstr
+                attributes: @{NSForegroundColorAttributeName:
+                    ([[self colorStringToUIColor:newCard.color] colorWithAlphaComponent:[self shadingToFloat: newCard.shading]])
+                              }];
         // to be replaced later
-        return [[NSAttributedString alloc]initWithString:newCard.contents];
+        //return [[NSAttributedString alloc]initWithString:newCard.contents];
     } else {
         return nil;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
