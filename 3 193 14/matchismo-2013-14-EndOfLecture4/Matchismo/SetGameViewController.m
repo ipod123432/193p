@@ -94,15 +94,21 @@
     return self;
 }
 
+- (void)updateUI
+{
+    [super updateUI];
+    self.game.mode = 3;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Set uses 3 cards so put into 3 card mode
-    self.game.mode = 3;
+    //self.game.mode = 3;
     // nil b/c no segmented control with Set, only 3 card mode
-    self.mode = nil;
+    //self.mode = nil;
     [self updateUI];
 }
 

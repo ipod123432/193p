@@ -127,7 +127,10 @@
             self.mode.enabled = YES;
             self.resultLabel.text = @"";
             self.pastMoves = [NSMutableArray arrayWithObject:@""];
-            self.game.mode = [self.mode selectedSegmentIndex] + 2;
+            if (self.mode)
+            {
+                self.game.mode = [self.mode selectedSegmentIndex] + 2;
+            }
             [self updateUI];
             
         }
