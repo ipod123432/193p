@@ -163,7 +163,7 @@
 }
 +(NSArray *)validShadings
 {
-    return @[@"solid",@"striped",@"empty"];
+    return @[@"solid",@"striped",@"open"];
 }
 +(NSArray *)rankStrings
 {

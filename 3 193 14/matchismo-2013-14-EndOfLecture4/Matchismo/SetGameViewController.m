@@ -39,6 +39,7 @@
     return dict[shape];
 }
 
+// useless actually
 - (NSInteger)shadingToFloat:(NSString *)shading
 {
     NSDictionary *dict = @{
@@ -47,6 +48,17 @@
                            @"empty" : @0.3
                            };
     return [dict[shading]floatValue];
+}
+- (NSDictionary *)shadingToDict:(NSString *)shading withAttr:(NSDictionary *)attr
+{
+    NSDictionary*dict = @{
+                          @"solid" : @{NSStrokeWidthAttributeName : @-5},
+                          @"striped" : @{NSStrokeWidthAttributeName : @-5, NSStrokeColorAttributeName : attr[NSForegroundColorAttributeName],
+                                         NSForegroundColorAttributeName : [attr[NSForegroundColorAttributeName] colorWithAlphaComponent:0.1]
+                                         },
+                          @"open" : @{NSStrokeWidthAttributeName : @5}
+                          };
+    return dict[shading];
 }
 
 - (NSAttributedString *)attributedTitleForCard:(Card *)card
@@ -57,11 +69,13 @@
         for (int rank = newCard.rank; rank > 0; rank--) {
             [atstr appendString:[self shapeToShape: newCard.shape]];
         }
+        NSMutableDictionary* attr = [NSMutableDictionary dictionaryWithDictionary:@{NSForegroundColorAttributeName:
+                                    ([self colorStringToUIColor:newCard.color])
+                                      }];
+        [attr addEntriesFromDictionary:[self shadingToDict:newCard.shading withAttr:attr]];
         return [[NSAttributedString alloc]
                 initWithString:atstr
-                attributes: @{NSForegroundColorAttributeName:
-                    ([[self colorStringToUIColor:newCard.color] colorWithAlphaComponent:[self shadingToFloat: newCard.shading]])
-                              }];
+                attributes: attr];
         // to be replaced later
         //return [[NSAttributedString alloc]initWithString:newCard.contents];
     } else {
@@ -89,6 +103,7 @@
     self.game.mode = 3;
     // nil b/c no segmented control with Set, only 3 card mode
     self.mode = nil;
+    [self updateUI];
 }
 
 - (void)didReceiveMemoryWarning

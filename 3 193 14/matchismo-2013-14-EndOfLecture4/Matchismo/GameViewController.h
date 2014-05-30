@@ -23,5 +23,6 @@
 - (Deck *)createDeck;
 - (NSString *)titleForCard:(Card *)card;
 - (NSAttributedString *)attributedTitleForCard:(Card *)card;
+- (void)updateUI;
 
 @end
