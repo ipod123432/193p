@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DBB568DD19340375004C8AF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB568DC19340375004C8AF5 /* Foundation.framework */; };
+		DBB568DF19340375004C8AF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB568DE19340375004C8AF5 /* CoreGraphics.framework */; };
+		DBB568E119340375004C8AF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB568E019340375004C8AF5 /* UIKit.framework */; };
+		DBB568E719340375004C8AF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBB568E519340375004C8AF5 /* InfoPlist.strings */; };
+		DBB568E919340375004C8AF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB568E819340375004C8AF5 /* main.m */; };
+		DBB568ED19340375004C8AF5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB568EC19340375004C8AF5 /* AppDelegate.m */; };
+		DBB568F019340375004C8AF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB568EE19340375004C8AF5 /* Main.storyboard */; };
+		DBB568F319340375004C8AF5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB568F219340375004C8AF5 /* ViewController.m */; };
+		DBB568F519340375004C8AF5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB568F419340375004C8AF5 /* Images.xcassets */; };
+		DBB568FC19340375004C8AF5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB568FB19340375004C8AF5 /* XCTest.framework */; };
+		DBB568FD19340375004C8AF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB568DC19340375004C8AF5 /* Foundation.framework */; };
+		DBB568FE19340375004C8AF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB568E019340375004C8AF5 /* UIKit.framework */; };
+		DBB5690619340375004C8AF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBB5690419340375004C8AF5 /* InfoPlist.strings */; };
+		DBB5690819340375004C8AF5 /* LampShadeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5690719340375004C8AF5 /* LampShadeTests.m */; };
+		DBB5691319340462004C8AF5 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5691219340462004C8AF5 /* Card.m */; };
+		DBB5691619340671004C8AF5 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5691519340671004C8AF5 /* Deck.m */; };
+		DBB56919193408F2004C8AF5 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB56918193408F2004C8AF5 /* PlayingCard.m */; };
+		DBB5691C1934117B004C8AF5 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB5691B1934117B004C8AF5 /* PlayingCardDeck.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBB568FF19340375004C8AF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBB568D119340375004C8AF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBB568D819340375004C8AF5;
+			remoteInfo = LampShade;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DBB568D919340375004C8AF5 /* LampShade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LampShade.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBB568DC19340375004C8AF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DBB568DE19340375004C8AF5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DBB568E019340375004C8AF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DBB568E419340375004C8AF5 /* LampShade-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LampShade-Info.plist"; sourceTree = "<group>"; };
+		DBB568E619340375004C8AF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DBB568E819340375004C8AF5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DBB568EA19340375004C8AF5 /* LampShade-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LampShade-Prefix.pch"; sourceTree = "<group>"; };
+		DBB568EB19340375004C8AF5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DBB568EC19340375004C8AF5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DBB568EF19340375004C8AF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DBB568F119340375004C8AF5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DBB568F219340375004C8AF5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DBB568F419340375004C8AF5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DBB568FA19340375004C8AF5 /* LampShadeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LampShadeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBB568FB19340375004C8AF5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DBB5690319340375004C8AF5 /* LampShadeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LampShadeTests-Info.plist"; sourceTree = "<group>"; };
+		DBB5690519340375004C8AF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DBB5690719340375004C8AF5 /* LampShadeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LampShadeTests.m; sourceTree = "<group>"; };
+		DBB5691119340462004C8AF5 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		DBB5691219340462004C8AF5 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		DBB5691419340671004C8AF5 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		DBB5691519340671004C8AF5 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		DBB56917193408F2004C8AF5 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		DBB56918193408F2004C8AF5 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
+		DBB5691A1934117B004C8AF5 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
+		DBB5691B1934117B004C8AF5 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBB568D619340375004C8AF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB568DF19340375004C8AF5 /* CoreGraphics.framework in Frameworks */,
+				DBB568E119340375004C8AF5 /* UIKit.framework in Frameworks */,
+				DBB568DD19340375004C8AF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBB568F719340375004C8AF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB568FC19340375004C8AF5 /* XCTest.framework in Frameworks */,
+				DBB568FE19340375004C8AF5 /* UIKit.framework in Frameworks */,
+				DBB568FD19340375004C8AF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DBB568D019340375004C8AF5 = {
+			isa = PBXGroup;
+			children = (
+				DBB568E219340375004C8AF5 /* LampShade */,
+				DBB5690119340375004C8AF5 /* LampShadeTests */,
+				DBB568DB19340375004C8AF5 /* Frameworks */,
+				DBB568DA19340375004C8AF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DBB568DA19340375004C8AF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBB568D919340375004C8AF5 /* LampShade.app */,
+				DBB568FA19340375004C8AF5 /* LampShadeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBB568DB19340375004C8AF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBB568DC19340375004C8AF5 /* Foundation.framework */,
+				DBB568DE19340375004C8AF5 /* CoreGraphics.framework */,
+				DBB568E019340375004C8AF5 /* UIKit.framework */,
+				DBB568FB19340375004C8AF5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBB568E219340375004C8AF5 /* LampShade */ = {
+			isa = PBXGroup;
+			children = (
+				DBB568EB19340375004C8AF5 /* AppDelegate.h */,
+				DBB568EC19340375004C8AF5 /* AppDelegate.m */,
+				DBB568EE19340375004C8AF5 /* Main.storyboard */,
+				DBB5691119340462004C8AF5 /* Card.h */,
+				DBB5691219340462004C8AF5 /* Card.m */,
+				DBB5691419340671004C8AF5 /* Deck.h */,
+				DBB5691519340671004C8AF5 /* Deck.m */,
+				DBB56917193408F2004C8AF5 /* PlayingCard.h */,
+				DBB56918193408F2004C8AF5 /* PlayingCard.m */,
+				DBB5691A1934117B004C8AF5 /* PlayingCardDeck.h */,
+				DBB5691B1934117B004C8AF5 /* PlayingCardDeck.m */,
+				DBB568F119340375004C8AF5 /* ViewController.h */,
+				DBB568F219340375004C8AF5 /* ViewController.m */,
+				DBB568F419340375004C8AF5 /* Images.xcassets */,
+				DBB568E319340375004C8AF5 /* Supporting Files */,
+			);
+			path = LampShade;
+			sourceTree = "<group>";
+		};
+		DBB568E319340375004C8AF5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DBB568E419340375004C8AF5 /* LampShade-Info.plist */,
+				DBB568E519340375004C8AF5 /* InfoPlist.strings */,
+				DBB568E819340375004C8AF5 /* main.m */,
+				DBB568EA19340375004C8AF5 /* LampShade-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DBB5690119340375004C8AF5 /* LampShadeTests */ = {
+			isa = PBXGroup;
+			children = (
+				DBB5690719340375004C8AF5 /* LampShadeTests.m */,
+				DBB5690219340375004C8AF5 /* Supporting Files */,
+			);
+			path = LampShadeTests;
+			sourceTree = "<group>";
+		};
+		DBB5690219340375004C8AF5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DBB5690319340375004C8AF5 /* LampShadeTests-Info.plist */,
+				DBB5690419340375004C8AF5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DBB568D819340375004C8AF5 /* LampShade */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBB5690B19340375004C8AF5 /* Build configuration list for PBXNativeTarget "LampShade" */;
+			buildPhases = (
+				DBB568D519340375004C8AF5 /* Sources */,
+				DBB568D619340375004C8AF5 /* Frameworks */,
+				DBB568D719340375004C8AF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LampShade;
+			productName = LampShade;
+			productReference = DBB568D919340375004C8AF5 /* LampShade.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DBB568F919340375004C8AF5 /* LampShadeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBB5690E19340375004C8AF5 /* Build configuration list for PBXNativeTarget "LampShadeTests" */;
+			buildPhases = (
+				DBB568F619340375004C8AF5 /* Sources */,
+				DBB568F719340375004C8AF5 /* Frameworks */,
+				DBB568F819340375004C8AF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBB5690019340375004C8AF5 /* PBXTargetDependency */,
+			);
+			name = LampShadeTests;
+			productName = LampShadeTests;
+			productReference = DBB568FA19340375004C8AF5 /* LampShadeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBB568D119340375004C8AF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = handWave;
+				TargetAttributes = {
+					DBB568F919340375004C8AF5 = {
+						TestTargetID = DBB568D819340375004C8AF5;
+					};
+				};
+			};
+			buildConfigurationList = DBB568D419340375004C8AF5 /* Build configuration list for PBXProject "LampShade" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DBB568D019340375004C8AF5;
+			productRefGroup = DBB568DA19340375004C8AF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBB568D819340375004C8AF5 /* LampShade */,
+				DBB568F919340375004C8AF5 /* LampShadeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBB568D719340375004C8AF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB568F519340375004C8AF5 /* Images.xcassets in Resources */,
+				DBB568E719340375004C8AF5 /* InfoPlist.strings in Resources */,
+				DBB568F019340375004C8AF5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBB568F819340375004C8AF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB5690619340375004C8AF5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBB568D519340375004C8AF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB56919193408F2004C8AF5 /* PlayingCard.m in Sources */,
+				DBB5691619340671004C8AF5 /* Deck.m in Sources */,
+				DBB568F319340375004C8AF5 /* ViewController.m in Sources */,
+				DBB568ED19340375004C8AF5 /* AppDelegate.m in Sources */,
+				DBB5691C1934117B004C8AF5 /* PlayingCardDeck.m in Sources */,
+				DBB568E919340375004C8AF5 /* main.m in Sources */,
+				DBB5691319340462004C8AF5 /* Card.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBB568F619340375004C8AF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB5690819340375004C8AF5 /* LampShadeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBB5690019340375004C8AF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBB568D819340375004C8AF5 /* LampShade */;
+			targetProxy = DBB568FF19340375004C8AF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DBB568E519340375004C8AF5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBB568E619340375004C8AF5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DBB568EE19340375004C8AF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBB568EF19340375004C8AF5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DBB5690419340375004C8AF5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBB5690519340375004C8AF5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DBB5690919340375004C8AF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DBB5690A19340375004C8AF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBB5690C19340375004C8AF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LampShade/LampShade-Prefix.pch";
+				INFOPLIST_FILE = "LampShade/LampShade-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DBB5690D19340375004C8AF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LampShade/LampShade-Prefix.pch";
+				INFOPLIST_FILE = "LampShade/LampShade-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DBB5690F19340375004C8AF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LampShade.app/LampShade";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LampShade/LampShade-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LampShadeTests/LampShadeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		DBB5691019340375004C8AF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LampShade.app/LampShade";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LampShade/LampShade-Prefix.pch";
+				INFOPLIST_FILE = "LampShadeTests/LampShadeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBB568D419340375004C8AF5 /* Build configuration list for PBXProject "LampShade" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBB5690919340375004C8AF5 /* Debug */,
+				DBB5690A19340375004C8AF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBB5690B19340375004C8AF5 /* Build configuration list for PBXNativeTarget "LampShade" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBB5690C19340375004C8AF5 /* Debug */,
+				DBB5690D19340375004C8AF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DBB5690E19340375004C8AF5 /* Build configuration list for PBXNativeTarget "LampShadeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBB5690F19340375004C8AF5 /* Debug */,
+				DBB5691019340375004C8AF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DBB568D119340375004C8AF5 /* Project object */;
+}

@@ -1,0 +1,110 @@
+//
+//  PlayingCard.m
+//  Matchismo
+//
+//  Created by Roger Zou on 05.26.14.
+//  Copyright (c) 2013 m2m server software gmbh. All rights reserved.
+//
+
+#import "PlayingCard.h"
+
+@implementation PlayingCard
+
+@synthesize suit = _suit;
+
++ (NSArray *)validSuits
+{
+    return @[@"♥️", @"♦️", @"♠️", @"♣️"];
+}
+
++ (NSArray *)rankStrings
+{
+    return @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
+}
+
++ (NSUInteger)maxRank
+{
+    return [[self rankStrings] count] - 1;
+}
+
+- (NSString *)contents
+{
+    return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
+}
+
+- (void)setSuit:(NSString *)suit
+{
+    if ([[PlayingCard validSuits] containsObject:suit]) {
+        _suit = suit;
+    }
+}
+
+- (NSString *)suit
+{
+    return _suit ? _suit : @"?";
+}
+
+- (void)setRank:(NSUInteger)rank
+{
+    if (rank <= [PlayingCard maxRank]) {
+        _rank = rank;
+    }
+}
+
+- (int)match:(NSArray *)otherCards
+{
+    int score = 0;
+    
+    if ([otherCards count] == 1) {
+        id card = [otherCards firstObject];
+        if ([card isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard = (PlayingCard *)card;
+            if ([self.suit isEqualToString:otherCard.suit]) {
+                score = 1;
+            } else if (self.rank == otherCard.rank) {
+                score = 4;
+            }
+        }
+    } else if ([otherCards count] == 2) {
+        id card = [otherCards firstObject];
+         // pops first object but this ver unnecessary.
+           // would've been used for much larger arrays
+        //NSMutableArray *mOthers = [otherCards mutableCopy];
+//        [mOthers removeObjectAtIndex:0];
+  //      otherCards = [[NSArray alloc] initWithArray:mOthers];
+        
+        id cardTwo = otherCards[1];
+        PlayingCard *otherC = nil;
+        if ([cardTwo isKindOfClass:[PlayingCard class]]) {
+            otherC = (PlayingCard *)cardTwo;
+        }
+        if ([card isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard = (PlayingCard *)card;
+            if ([self.suit isEqualToString:otherCard.suit]) {
+                score = 1;
+                if ([self.suit isEqualToString:otherC.suit])
+                {
+                    score += 2;
+                }
+            } else if (self.rank == otherCard.rank) {
+                score = 4;
+                if (self.rank == otherC.rank)
+                {
+                    score += 8;
+                }
+            } else {
+                if ([self match:@[otherC]] > [otherCard match:@[otherC]])
+                {
+                    score = [self match:@[otherC]];
+                } else {
+                    score = [otherCard match:@[otherC]];
+                }
+            }
+        }
+
+    }
+    
+    return score;
+}
+
+@end
