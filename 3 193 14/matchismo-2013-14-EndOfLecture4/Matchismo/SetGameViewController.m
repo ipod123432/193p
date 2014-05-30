@@ -98,6 +98,10 @@
 {
     [super updateUI];
     self.game.mode = 3;
+}
+
+- (void)changeResultLabelAndStoreResult
+{
     NSMutableAttributedString *desc = [[NSMutableAttributedString alloc]initWithString:@""];
     if ([self.game.lastCards count])
     {
@@ -112,6 +116,7 @@
             [desc appendAttributedString:([[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"don't match. %d point penalty.", -self.game.lastScore]])];
         }
         self.resultLabel.attributedText = desc;
+        [self.pastMoves addObject:desc];
     }
 }
 

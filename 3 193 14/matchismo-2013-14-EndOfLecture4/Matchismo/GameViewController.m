@@ -17,7 +17,12 @@
 - (IBAction)slideChanged:(UISlider *)sender {
     int discreteVal = round([sender value]); //round
     [sender setValue:(float)discreteVal];
-    self.resultLabel.text = self.pastMoves[discreteVal];
+    if ([self.pastMoves[discreteVal] isKindOfClass:[NSString class]])
+    {
+        self.resultLabel.text = self.pastMoves[discreteVal];
+    } else if ([self.pastMoves[discreteVal] isKindOfClass:[NSAttributedString class]]) {
+        self.resultLabel.attributedText = self.pastMoves[discreteVal];
+    }
     self.resultLabel.alpha = 0.6;
 }
 
@@ -34,6 +39,27 @@
     // tag for identification when handling
     dealAlert.tag = 1;
     [dealAlert show];
+}
+
+- (void)changeResultLabelAndStoreResult
+{
+    NSString *description = @"";
+    if ([self.game.lastCards count])
+    {
+        NSMutableArray *cardContents =  [NSMutableArray array];
+        for (Card *card in self.game.lastCards)
+        {
+            [cardContents addObject:card.contents];
+        }
+        description = [cardContents componentsJoinedByString:@" "];
+    }
+    if (self.game.lastScore > 0) {
+        description = [NSString stringWithFormat:@"Matched %@ for %d points.", description, self.game.lastScore];
+    } else if (self.game.lastScore < 0) {
+        description = [NSString stringWithFormat:@"%@ don't match. %d point penalty.", description, -self.game.lastScore];
+    }
+    self.resultLabel.text = description;
+    [self.pastMoves addObject: description];
 }
 
 - (void)updateUI
@@ -56,23 +82,7 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     if (self.game) {
-        NSString *description = @"";
-        if ([self.game.lastCards count])
-        {
-            NSMutableArray *cardContents =  [NSMutableArray array];
-            for (Card *card in self.game.lastCards)
-            {
-                [cardContents addObject:card.contents];
-            }
-            description = [cardContents componentsJoinedByString:@" "];
-        }
-        if (self.game.lastScore > 0) {
-            description = [NSString stringWithFormat:@"Matched %@ for %d points.", description, self.game.lastScore];
-        } else if (self.game.lastScore < 0) {
-            description = [NSString stringWithFormat:@"%@ don't match. %d point penalty.", description, -self.game.lastScore];
-        }
-        self.resultLabel.text = description;
-        [self.pastMoves addObject: description];
+        [self changeResultLabelAndStoreResult];
         self.historySlider.maximumValue = [self.pastMoves count]-1;
         self.historySlider.value = self.historySlider.maximumValue;
         self.resultLabel.alpha = 1;
