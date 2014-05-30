@@ -31,6 +31,7 @@
         bicol = [bicol colorWithAlphaComponent:[SetCard shadingToCGFloat:shading]];
     }
     return bicol;
+    NSLog(@"%@",bicol);
 }
 
 
@@ -42,8 +43,9 @@
             
             // shading color shape rank
             NSMutableAttributedString *title = [NSMutableAttributedString new];
-            NSDictionary *attributes = @{@"NSForegroundColorAttributeName":[self colorConvert:sCard.color withShading:sCard.shading],
+            NSDictionary *attributes = @{@"NSForegroundColorAttributeName":[self colorConvert:sCard.color withShading:sCard.shading]
                                          };
+            NSLog(@"%@", attributes);
             for (int i = [sCard.rank intValue]; i > 0; i--) {
                 NSMutableAttributedString *dastring = [[NSMutableAttributedString alloc]initWithString:[SetCard shapeStrings][sCard.shape] attributes:attributes];
                 [title appendAttributedString:dastring];
@@ -67,7 +69,10 @@
     for (UIButton *cardButton in self.cardButtons) {
         int cardIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardIndex];
+        NSLog(@"eh1");
         [cardButton setAttributedTitle:[self attributedTitleForCard:card] forState:UIControlStateNormal];
+        NSLog(@"eh2");
+        NSLog(@"%@ ff",cardButton.currentAttributedTitle);
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.matched;
     }
