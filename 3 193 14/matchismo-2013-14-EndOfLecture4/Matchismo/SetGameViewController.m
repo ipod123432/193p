@@ -98,6 +98,26 @@
 {
     [super updateUI];
     self.game.mode = 3;
+    NSMutableAttributedString *desc = [[NSMutableAttributedString alloc]initWithString:@""];
+    if ([self.game.lastCards count])
+    {
+        for (Card *card in self.game.lastCards)
+        {
+            [desc appendAttributedString:[self attributedTitleForCard:card]];
+            [desc appendAttributedString:([[NSAttributedString alloc]initWithString:@" "])];
+        }
+        if (self.game.lastScore > 0) {
+            [desc appendAttributedString:([[NSAttributedString alloc]initWithString:[NSString stringWithFormat: @"matched for %d points.", self.game.lastScore]])];
+        } else if (self.game.lastScore < 0) {
+            [desc appendAttributedString:([[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"don't match. %d point penalty.", -self.game.lastScore]])];
+        }
+        self.resultLabel.attributedText = desc;
+    }
+}
+
+- (UIImage *)backgroundImageForCard:(Card *)card
+{
+    return [UIImage imageNamed:card.chosen ? @"setfront" : @"cardfront"];
 }
 
 - (void)viewDidLoad
