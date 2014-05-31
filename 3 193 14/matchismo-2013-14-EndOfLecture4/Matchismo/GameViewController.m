@@ -42,6 +42,33 @@
     [dealAlert show];
 }
 
+// Handles confirmation window for Deal
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // tag indicates is Redeal alert
+    if (alertView.tag == 1)
+    {
+        if (buttonIndex == [alertView cancelButtonIndex])
+        {
+            //cancel clicked, nothing happen
+        } else {
+            //redeal
+            self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                                          usingDeck:[self createDeck]];
+            self.game.gameType = [self myGameType];
+            self.mode.enabled = YES;
+            self.resultLabel.text = @"";
+            self.pastMoves = [NSMutableArray arrayWithObject:@""];
+            if (self.mode)
+            {
+                self.game.mode = [self.mode selectedSegmentIndex] + 2;
+            }
+            [self updateUI];
+        }
+    }
+}
+
+
 - (void)changeResultLabelAndStoreResult
 {
     NSString *description = @"";
@@ -95,22 +122,10 @@
         NSString *start = [NSDateFormatter localizedStringFromDate:self.game.startDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
         NSString *end = [NSDateFormatter localizedStringFromDate:self.game.endDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
         NSString *value = [NSString stringWithFormat:@"%@ scored %d points. Took %f seconds. From %@ to %@.", self.game.gameType, self.game.score, self.game.interval, start, end];
-        NSMutableArray *scoreArray = [[[NSUserDefaults standardUserDefaults]arrayForKey:@"scores"]mutableCopy];
-        BOOL has = false;
-        for (NSDictionary *dict in scoreArray) {
-            if ([[dict allKeys] containsObject:key])
-            {
-                has = true;
-                scoreArray[[scoreArray indexOfObject:dict]] = @{key: value};
-                break;
-            }
-        }
-        if (!has)
-        {
-            [scoreArray addObject: @{key : value}];
-        }
         NSUserDefaults *pi = [NSUserDefaults standardUserDefaults];
-        [pi setObject:scoreArray forKey:@"scores"];
+        NSMutableDictionary *dict = [[pi dictionaryForKey:@"scores"] mutableCopy];
+        [dict setObject:value forKey:key];
+        [pi setObject:dict forKey:@"scores"];
         [pi synchronize];
     }
 }
@@ -144,33 +159,6 @@
     int cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
     [self updateUI];
-}
-
-
-// Handles confirmation window for Deal
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    // tag indicates is Redeal alert
-    if (alertView.tag == 1)
-    {
-        if (buttonIndex == [alertView cancelButtonIndex])
-        {
-            //cancel clicked, nothing happen
-        } else {
-            //redeal
-            self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                          usingDeck:[self createDeck]];
-            self.mode.enabled = YES;
-            self.resultLabel.text = @"";
-            self.pastMoves = [NSMutableArray arrayWithObject:@""];
-            if (self.mode)
-            {
-                self.game.mode = [self.mode selectedSegmentIndex] + 2;
-            }
-            [self updateUI];
-            
-        }
-    }
 }
 
 - (NSString *)myGameType
@@ -209,8 +197,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSUserDefaults *pi = [NSUserDefaults standardUserDefaults];
+    [pi setObject:@{} forKey:@"scores"];
+    [pi synchronize];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

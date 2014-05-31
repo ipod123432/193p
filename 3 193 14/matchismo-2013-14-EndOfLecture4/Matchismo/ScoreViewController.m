@@ -19,27 +19,31 @@
 
 - (void)updateUI
 {
-    if ([[[NSUserDefaults standardUserDefaults]arrayForKey:@"scores"]count])
-    {
-        NSArray *scores = [[NSUserDefaults standardUserDefaults]arrayForKey:@"scores"];
-        NSString *hold = @"";
-        //NSMutableAttributedString *attrhold = [[NSMutableAttributedString alloc]initWithString:@""];
-        for (NSDictionary *dict in scores) {
-            NSString *result = [[dict allValues]firstObject];
-            if ([result isKindOfClass:[NSString class]])
-            {
-                hold = [hold stringByAppendingString:result];
-                hold = [hold stringByAppendingString:@"\n"];
-                //[attrhold appendAttributedString:([[NSAttributedString alloc]initWithString:hold])];
-                //hold = @"";
-            }
-            //else if ([result isKindOfClass:[NSAttributedString class]]) {
-                //[attrhold appendAttributedString:move];
-                //[attrhold appendAttributedString:([[NSAttributedString alloc]initWithString:@"\n"])];
-            //}
-        }
-        self.textbox.text = hold;
+    NSDictionary *scores = [[NSUserDefaults standardUserDefaults]dictionaryForKey:@"scores"];
+    NSArray *vals = [scores allValues];
+    NSString *hold = @"";
+    //NSMutableAttributedString *attrhold = [[NSMutableAttributedString alloc]initWithString:@""];
+    for (NSString *val in vals) {
+        hold = [hold stringByAppendingString:val];
+        hold = [hold stringByAppendingString:@"\n"];
     }
+    
+    //for (NSDictionary *dict in scores) {
+      //  NSString *result = [[dict allValues]firstObject];
+        //if ([result isKindOfClass:[NSString class]])
+        //{
+          //  hold = [hold stringByAppendingString:result];
+            //hold = [hold stringByAppendingString:@"\n"];
+            //[attrhold appendAttributedString:([[NSAttributedString alloc]initWithString:hold])];
+            //hold = @"";
+        //}
+        //else if ([result isKindOfClass:[NSAttributedString class]]) {
+            //[attrhold appendAttributedString:move];
+            //[attrhold appendAttributedString:([[NSAttributedString alloc]initWithString:@"\n"])];
+        //}
+    
+   // }
+    self.textbox.text = hold;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
