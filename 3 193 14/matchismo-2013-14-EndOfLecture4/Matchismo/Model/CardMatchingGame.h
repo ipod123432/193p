@@ -22,5 +22,9 @@
 @property (nonatomic) NSUInteger mode;
 @property (nonatomic) NSInteger lastScore;
 @property (nonatomic, strong) NSArray *lastCards;
+@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *endDate;
+@property (nonatomic) NSTimeInterval interval;
+@property (nonatomic, strong) NSString *gameType;
 
 @end

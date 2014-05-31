@@ -20,4 +20,9 @@
     return [[PlayingCardDeck alloc] init];
 }
 
+- (NSString *)myGameType
+{
+    return @"CardGame";
+}
+
 @end

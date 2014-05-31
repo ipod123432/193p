@@ -87,6 +87,31 @@
         self.historySlider.maximumValue = [self.pastMoves count]-1;
         self.historySlider.value = self.historySlider.maximumValue;
         self.resultLabel.alpha = 1;
+        
+        //array of dictionaries w/ keys as date concat gametype. value is time interval
+        NSString *key = [self.game.gameType stringByAppendingString:(
+                         [NSDateFormatter localizedStringFromDate:self.game.startDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle]
+                         )];
+        NSString *start = [NSDateFormatter localizedStringFromDate:self.game.startDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
+        NSString *end = [NSDateFormatter localizedStringFromDate:self.game.endDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
+        NSString *value = [NSString stringWithFormat:@"%@ scored %d points. Took %f seconds. From %@ to %@.", self.game.gameType, self.game.score, self.game.interval, start, end];
+        NSMutableArray *scoreArray = [[[NSUserDefaults standardUserDefaults]arrayForKey:@"scores"]mutableCopy];
+        BOOL has = false;
+        for (NSDictionary *dict in scoreArray) {
+            if ([[dict allKeys] containsObject:key])
+            {
+                has = true;
+                scoreArray[[scoreArray indexOfObject:dict]] = @{key: value};
+                break;
+            }
+        }
+        if (!has)
+        {
+            [scoreArray addObject: @{key : value}];
+        }
+        NSUserDefaults *pi = [NSUserDefaults standardUserDefaults];
+        [pi setObject:scoreArray forKey:@"scores"];
+        [pi synchronize];
     }
 }
 
@@ -148,12 +173,18 @@
     }
 }
 
+- (NSString *)myGameType
+{
+    // to be overridden
+    return nil;
+}
 
 - (CardMatchingGame *)game
 {
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
+        _game.gameType = [self myGameType];
     }
     return _game;
 }
@@ -164,10 +195,6 @@
     return nil;
     //should be overridden
 }
-
-
-
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

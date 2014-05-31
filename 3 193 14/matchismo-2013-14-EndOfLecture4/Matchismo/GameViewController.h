@@ -26,5 +26,6 @@
 - (void)updateUI;
 - (UIImage *)backgroundImageForCard:(Card *)card;
 - (void)changeResultLabelAndStoreResult;
+- (NSString *)myGameType;
 
 @end

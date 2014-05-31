@@ -46,6 +46,9 @@
                 break;
             }
         }
+        self.startDate = [NSDate date];
+        self.endDate = [NSDate date];
+        self.interval = [self.startDate timeIntervalSinceNow];
     }
     
     return self;
@@ -110,6 +113,9 @@ static const int COST_TO_CHOOSE = 1;
             card.chosen = YES;
         }
     }
+    
+    self.endDate = [NSDate date];
+    self.interval = [self.endDate timeIntervalSinceDate:self.startDate];
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index

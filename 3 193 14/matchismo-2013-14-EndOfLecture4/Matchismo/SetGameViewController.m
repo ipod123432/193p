@@ -100,6 +100,11 @@
     self.game.mode = 3;
 }
 
+- (NSString *)myGameType
+{
+    return @"SetGame";
+}
+
 - (void)changeResultLabelAndStoreResult
 {
     NSMutableAttributedString *desc = [[NSMutableAttributedString alloc]initWithString:@""];
