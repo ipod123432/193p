@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>36E63AD0-D2EC-487D-8BC3-3ECAB491FE9D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Dropit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B9AC4332-6F4D-4A90-BFA6-EDCF7DA0716D</key>
+		<string>https://github.com/ipod123432/193p.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>3 193 14/Dropit Attach/Dropit.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B9AC4332-6F4D-4A90-BFA6-EDCF7DA0716D</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ipod123432/193p.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B9AC4332-6F4D-4A90-BFA6-EDCF7DA0716D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B9AC4332-6F4D-4A90-BFA6-EDCF7DA0716D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cs193p.fuckitall.yolo.freshman</string>
+		</dict>
+	</array>
+</dict>
+</plist>

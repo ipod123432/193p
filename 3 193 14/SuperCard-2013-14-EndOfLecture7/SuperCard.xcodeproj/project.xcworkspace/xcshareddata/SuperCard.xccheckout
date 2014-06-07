@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>023BAA53-E1AD-427D-87F5-989936AF221F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SuperCard</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>19C5D7B0-5E36-409C-AF2D-F25B2BCC56AE</key>
+		<string>https://github.com/ipod123432/193p.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>3 193 14/SuperCard-2013-14-EndOfLecture7/SuperCard.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>19C5D7B0-5E36-409C-AF2D-F25B2BCC56AE</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ipod123432/193p.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>19C5D7B0-5E36-409C-AF2D-F25B2BCC56AE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>19C5D7B0-5E36-409C-AF2D-F25B2BCC56AE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cs193p.fuckitall.yolo.freshman</string>
+		</dict>
+	</array>
+</dict>
+</plist>
